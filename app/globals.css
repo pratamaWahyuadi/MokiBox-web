@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Warm theme (default) — cream + kuning + coklat tua ala logo */
+  --moki-bg: 248 232 200;
+  --moki-surface: 240 220 176;
+  --moki-line: 217 184 112;
+  --moki-text: 33 19 11;
+  --moki-mute: 138 111 61;
+  --moki-accent: 232 157 27;
+  --moki-accent2: 139 90 26;
+  --moki-gold: 33 19 11;
+  --moki-ink: 245 181 68;
+  color-scheme: light;
+}
+
+.moki-mellow {
+  --moki-bg: 21 17 10;
+  --moki-surface: 31 24 16;
+  --moki-line: 58 46 31;
+  --moki-text: 248 232 200;
+  --moki-mute: 168 147 119;
+  --moki-accent: 232 157 27;
+  --moki-accent2: 194 138 42;
+  --moki-gold: 33 19 11;
+  --moki-ink: 245 181 68;
+  color-scheme: dark;
+}
+
+html,
+body {
+  height: 100%;
+  background: rgb(var(--moki-bg));
+  color: rgb(var(--moki-text));
+  transition: background-color 200ms ease, color 200ms ease;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* hide scrollbars di area yang memakai scroll-snap */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Paksa browser berhenti snap di tiap item feed, meskipun wheel delta besar.
+   Tanpa ini, scroll cepat bisa loncat melewati beberapa item. */
+.feed-snap-item {
+  scroll-snap-stop: always;
+}
+
+/* Like button pop animation */
+@keyframes like-pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.35); }
+  100% { transform: scale(1); }
+}
+.animate-like-pop {
+  animation: like-pop 350ms ease-out;
+}
